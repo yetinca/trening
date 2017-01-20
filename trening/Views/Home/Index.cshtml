@@ -1,0 +1,65 @@
+﻿@model IEnumerable<trening.Models.OsobyModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table-striped table-hover">
+            <tr>
+                <th class="col-lg-2">
+                    @Html.DisplayNameFor(model => model.Nazwisko)
+                </th>
+                <th class="col-lg-2">
+                    @Html.DisplayNameFor(model => model.Imie)
+                </th>
+                <th class="col-lg-2">
+                    @Html.DisplayNameFor(model => model.PESEL)
+                </th>
+                <th class="col-lg-2">
+                    @Html.DisplayNameFor(model => model.Wiek)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="col-lg-2">
+                        @Html.DisplayFor(modelItem => item.Nazwisko)
+                    </td>
+                    <td class="col-lg-2">
+                        @Html.DisplayFor(modelItem => item.Imie)
+                    </td>
+                    <td class="col-lg-2">
+                        @Html.DisplayFor(modelItem => item.PESEL)
+                    </td>
+                    <td class="col-lg-2">
+                        @Html.DisplayFor(modelItem => item.Wiek)
+                    </td>
+                    <td class="col-lg-2">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-success" }) 
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
